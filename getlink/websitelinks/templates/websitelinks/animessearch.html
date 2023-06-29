@@ -1,0 +1,146 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+    <head><title><h1>animessarch</h1></title>
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {   
+     const Found = document.querySelector('#found')
+     const MyList = document.querySelector('#My-List')
+     let name3 = 'Rename Link'
+     let name4 = 'Remove Link'
+     let button1 = document.createElement("button")
+     button1.style.background = 'white'
+     button1.innerHTML = 'ADD PAGE'
+     button1.className = "fir_st"
+     let button2 = document.createElement("button")
+     button2.style.background = 'white'
+     button2.innerHTML = 'CHECK PAGE'
+     button2.className = "sec_ond"
+     document.querySelectorAll("#My-List li").forEach(eLI=>eLI.appendChild(button1.cloneNode(true)))
+     document.querySelectorAll("#My-List li").forEach(eLI=>eLI.appendChild(button2.cloneNode(true)))
+     var view1 = document.getElementsByClassName('fir_st');
+     var view2 = document.getElementsByClassName('sec_ond');
+     document.querySelector('#My-List').onmouseover = function() {
+     
+    for (var i=0; i<view1.length; i++) {
+    if(view1[i].style.visibility == 'hidden'){
+                  // do some stuff
+       view1[i].style.visibility = 'visible'
+      }
+        else{
+                 // do some stuff
+               view1[i].style.visibility = 'visible'
+            }
+     } 
+
+     document.querySelector('#My-List').onmouseout = function() {
+     
+      for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.visibility == 'visible'){
+                    // do some stuff
+         view1[i].style.visibility = 'hidden'
+         }
+           else{
+                   // do some stuff
+                 view1[i].style.visibility = 'hidden'
+              }
+       } 
+
+      
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.visibility == 'visible'){
+                // do some stuff
+         view2[i].style.visibility = 'hidden'
+      }
+       else{
+               // do some stuff
+             view2[i].style.visibility = 'hidden'
+           }
+       } 
+    }
+
+    //var view2 = document.getElementsByClassName('sec_ond');
+    for (var i=0; i<view2.length; i++) {
+    if(view2[i].style.visibility == 'hidden'){
+              // do some stuff
+       view2[i].style.visibility = 'visible'
+    }
+     else{
+             // do some stuff
+           view2[i].style.visibility = 'visible'
+         }
+     } 
+  }
+  
+
+  document.querySelector('#My-List').onclick = function() {
+    event.preventDefault();
+    //let pLI = event.target.parentElement
+    if (event.target.className =='fir_st') {
+   //   for (var i=0; i<view1.length; i++) {
+   // if(view1[i].innerHTML == 'ADD PAGE'){
+                  // do some stuff
+    //   view1[i].innerHTML = 'delete'
+  //    }
+     //   else{
+                 // do some stuff
+      //         view1[i].innerHTML = 'delete'
+      //      }
+   //  }  
+
+     //for (var i=0; i<view2.length; i++) {
+     // if(view2[i].innerHTML == 'CHECK PAGE'){
+                // do some stuff
+       //  view2[i].innerHTML = 'RENAME PAGE'
+     // }
+      // else{
+               // do some stuff
+      //       view2[i].innerHTML = 'RENAME PAGE'
+      //     }
+    //   } 
+    let pLI = event.target.parentElement
+
+    // const gombok=document.getElementsByTagName('button')
+    console.log('outerHTML',pLI.outerHTML)
+    localStorage.setItem('file', pLI.outerHTML)
+    window.location.href = "{%url 'animes'%}"
+    window.close
+
+    }
+
+    if (event.target.className =='sec_ond') {
+    let pLI = event.target.parentElement
+    MyList.removeChild(pLI)
+
+    }
+
+  }  
+ 
+  
+})
+
+        </script>
+    </head>
+    <body>
+        <h2>free download links</h2>
+        <a href="{%url 'animes'%}">Back</a>
+        <ol id="My-List">
+          {% for site in context %} 
+          {% for a in site %}
+             <li id="checky"><a href="{{a}}">{{a}}</a></li> 
+          {%empty%}
+             <li>no webpage available</li>
+          {% endfor %}
+          {% endfor %}
+      </ol>
+     <ul id="chh">
+      <li> <h3></h3> </li>
+     </ul>
+      
+    </body>
+</html>
+
+
+
+                  

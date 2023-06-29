@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head><title>animes link</title>
+        <link href = "{%static 'websitelinks/wrapper.css'%}" rel = 'stylesheet'>
+        <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'> 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            let web = ('<li>{{animeweb}}</li>')
+            const list = document.getElementById("found")
+             let iframe =('<iframe allowtransparency="true" style="background-color: pink;" id="welcome" src="{% url 'animessearch'%} " frameborder="0"  width="650" height="600"></iframe>')
+                document.querySelector('#go').onclick = function() {
+                    ('iframe')
+                    document.querySelector('h2').innerHTML = iframe
+                }
+                
+               // const gombok=document.getElementsByTagName('button')
+               
+                 
+
+                 //changing button properties onmouseover
+
+    //  document.querySelector('#found').onmouseover = function() {
+    //for (var i=0; i<view1.length; i++) {
+    //if(view1[i].style.visibility == 'hidden') {
+                  // do some stuff
+     //  view1[i].style.visibility = 'visible'
+     // }
+      //  else{
+                 // do some stuff
+             //  view1[i].style.visibility = 'visible'
+            //}
+   //  } 
+
+    //  for (var i=0; i<view2.length; i++) {
+     // if(view2[i].style.visibility == 'hidden'){
+                // do some stuff
+        // view2[i].style.visibility = 'visible'
+     // }
+      // else{
+               // do some stuff
+          //   view2[i].style.visibility = 'visible'
+          // }
+     //  } 
+    //}
+     //changing button properties onmouseout
+     
+    // document.querySelector('#found').onmouseout = function() {
+     // for (var i=0; i<view1.length; i++) {
+    //  if(view1[i].style.visibility == 'visible'){
+       // do some stuff
+     //    view1[i].style.visibility = 'hidden'
+       //  }
+        //   else{
+                   // do some stuff
+            //     view1[i].style.visibility = 'hidden'
+          //    }
+      // } 
+
+    //  for (var i=0; i<view2.length; i++) {
+    //  if(view2[i].style.visibility == 'visible'){
+                // do some stuff
+      //   view2[i].style.visibility = 'hidden'
+   //   }
+     //  else{
+               // do some stuff
+         //    view2[i].style.visibility = 'hidden'
+         //  }
+    //   } 
+   // }
+    
+          
+               // localStorage.clear();
+                 // localStorage.removeItem('got')
+                pLiget = localStorage.getItem('file')
+                if(pLiget != null){
+                    localStorage.setItem(localStorage.length, pLiget)
+                    localStorage.removeItem('file')
+
+                }
+                   for ( var i = 0; i < localStorage.length; ++i ) { 
+                   //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
+                   retreived = localStorage.key(i)//+":"+
+                   actual = localStorage.getItem(localStorage.key(i))
+
+                  // localStorage.setItem(localStorage.length, actual)
+                   console.log(retreived)
+                   console.log(actual)
+                    bee = []
+                    bee.push(actual)
+                    console.log(bee)
+                   for(x in bee){
+                   var k = document.createElement('p')
+                   var node = bee[x]
+                   console.log(node)
+                   k.innerHTML = node
+                   console.log(k)
+                   document.querySelector('#found li').appendChild(k)
+                   }
+                   //localStorage.clear();
+
+                   }
+                   
+                    //console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))); }
+                    
+                
+            })
+        </script>
+    
+    </head>
+    <body> 
+        <div class="wrapper">
+            <div class="left">
+            <h1>links to free Animes download websites</h1>
+            <ul id="found">
+                <a href="https://gogoanime.pe/">gogoanime.pe</a>
+
+                <li> {{animeweb}} </li>
+                
+                
+            </ul>
+            <a href="{% url 'websites'%}">WEBSITES</a>
+            </div>
+            <div class="right">
+                <h3>links from Google</h3>
+                <button id="go"><h2>get</h2>
+                </button>
+              <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
+            </div>
+        </div>
+    </body>
+</html>
