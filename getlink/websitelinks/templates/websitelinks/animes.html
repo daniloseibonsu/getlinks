@@ -8,66 +8,68 @@
             document.addEventListener('DOMContentLoaded', function() {
             let web = ('<li>{{animeweb}}</li>')
             const list = document.getElementById("found")
-             let iframe =('<iframe allowtransparency="true" style="background-color: pink;" id="welcome" src="{% url 'animessearch'%} " frameborder="0"  width="650" height="600"></iframe>')
+             let iframe =('(<a href = "{% url 'animessearch'%}"> animessearch</a>)')
                 document.querySelector('#go').onclick = function() {
                     ('iframe')
                     document.querySelector('h2').innerHTML = iframe
                 }
-                
+        
+
                // const gombok=document.getElementsByTagName('button')
                
-                 
+               var view1 = document.getElementsByClassName('fir_st');
+               var view2 = document.getElementsByClassName('sec_ond');
 
                  //changing button properties onmouseover
 
-    //  document.querySelector('#found').onmouseover = function() {
-    //for (var i=0; i<view1.length; i++) {
-    //if(view1[i].style.visibility == 'hidden') {
+      document.querySelector('#found').onmouseover = function() {
+      for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.display == 'none') {
                   // do some stuff
-     //  view1[i].style.visibility = 'visible'
-     // }
-      //  else{
+       view1[i].style.display = 'block'
+      }
+        else{
                  // do some stuff
-             //  view1[i].style.visibility = 'visible'
-            //}
-   //  } 
+               view1[i].style.display = 'block'
+            }
+     } 
 
-    //  for (var i=0; i<view2.length; i++) {
-     // if(view2[i].style.visibility == 'hidden'){
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.display == 'none'){
                 // do some stuff
-        // view2[i].style.visibility = 'visible'
-     // }
-      // else{
+         view2[i].style.display = 'block'
+      }
+       else{
                // do some stuff
-          //   view2[i].style.visibility = 'visible'
-          // }
-     //  } 
-    //}
+             view2[i].style.display = 'block'
+           }
+       } 
+    }
      //changing button properties onmouseout
      
-    // document.querySelector('#found').onmouseout = function() {
-     // for (var i=0; i<view1.length; i++) {
-    //  if(view1[i].style.visibility == 'visible'){
+     document.querySelector('#found').onmouseout = function() {
+      for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.display == 'block'){
        // do some stuff
-     //    view1[i].style.visibility = 'hidden'
-       //  }
-        //   else{
+         view1[i].style.display = 'none'
+         }
+           else{
                    // do some stuff
-            //     view1[i].style.visibility = 'hidden'
-          //    }
-      // } 
+                 view1[i].style.display = 'none'
+              }
+       } 
 
-    //  for (var i=0; i<view2.length; i++) {
-    //  if(view2[i].style.visibility == 'visible'){
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.display == 'block'){
                 // do some stuff
-      //   view2[i].style.visibility = 'hidden'
-   //   }
-     //  else{
+         view2[i].style.visibility = 'none'
+      }
+       else{
                // do some stuff
-         //    view2[i].style.visibility = 'hidden'
-         //  }
-    //   } 
-   // }
+             view2[i].style.visibility = 'none'
+           }
+       } 
+    }
     
           
                // localStorage.clear();

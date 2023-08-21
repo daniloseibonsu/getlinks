@@ -13,14 +13,17 @@
      button1.style.background = 'white'
      button1.innerHTML = 'ADD PAGE'
      button1.className = "fir_st"
+     button1.style.display = "block"
      let button2 = document.createElement("button")
      button2.style.background = 'white'
      button2.innerHTML = 'CHECK PAGE'
      button2.className = "sec_ond"
+     button2.style.display = "block"
      document.querySelectorAll("#My-List li").forEach(eLI=>eLI.appendChild(button1.cloneNode(true)))
      document.querySelectorAll("#My-List li").forEach(eLI=>eLI.appendChild(button2.cloneNode(true)))
      var view1 = document.getElementsByClassName('fir_st');
      var view2 = document.getElementsByClassName('sec_ond');
+
      document.querySelector('#My-List').onmouseover = function() {
      
     for (var i=0; i<view1.length; i++) {
@@ -75,38 +78,52 @@
   
 
   document.querySelector('#My-List').onclick = function() {
-    event.preventDefault();
-    //let pLI = event.target.parentElement
+    
     if (event.target.className =='fir_st') {
-   //   for (var i=0; i<view1.length; i++) {
-   // if(view1[i].innerHTML == 'ADD PAGE'){
+      var elems = document.getElementsByClassName('fir_st');
+      var lems = document.getElementsByClassName('sec_ond');
+          for (var i=0;i<elems.length;i+=1){
+           elems[i].style.display = 'none';
+          }
+          for (var i=0;i<lems.length;i+=1){
+           lems[i].style.display = 'none';
+          }
+      let pLI = event.target.parentElement
+     
+      for (var i=0; i<view1.length; i++) {
+    if(view1[i].innerHTML == 'ADD PAGE' ){
                   // do some stuff
-    //   view1[i].innerHTML = 'delete'
-  //    }
-     //   else{
+       view1[i].innerHTML = 'delete'
+      
+      }
+        else{
                  // do some stuff
-      //         view1[i].innerHTML = 'delete'
-      //      }
-   //  }  
+                 view1[i].innerHTML = 'ADD PAGE'
+               
 
-     //for (var i=0; i<view2.length; i++) {
-     // if(view2[i].innerHTML == 'CHECK PAGE'){
+            }
+     }  
+
+     for (var i=0; i<view2.length; i++) {
+      if( view2[i].innerHTML == 'CHECK PAGE' ){
                 // do some stuff
-       //  view2[i].innerHTML = 'RENAME PAGE'
-     // }
-      // else{
+         view2[i].innerHTML = 'RENAME PAGE'
+        
+      }
+       else{
                // do some stuff
-      //       view2[i].innerHTML = 'RENAME PAGE'
-      //     }
-    //   } 
-    let pLI = event.target.parentElement
+             view2[i].innerHTML = 'CHECK PAGE'
+             
+           }
+       } 
+ 
+      console.log('outerHTML',pLI.outerHTML)
+      localStorage.setItem('file', pLI.outerHTML)
+      window.location.href = "{%url 'animes'%}"
+      window.close
 
     // const gombok=document.getElementsByTagName('button')
-    console.log('outerHTML',pLI.outerHTML)
-    localStorage.setItem('file', pLI.outerHTML)
-    window.location.href = "{%url 'animes'%}"
-    window.close
-
+    
     }
 
     if (event.target.className =='sec_ond') {
