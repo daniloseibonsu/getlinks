@@ -6,7 +6,7 @@
         <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'> 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-            let web = ('<li>{{animeweb}}</li>')
+          //  let web = ('<li>{{animeweb}}</li>')
             const list = document.getElementById("found")
              let iframe =('(<a href = "{% url 'animessearch'%}"> animessearch</a>)')
                 document.querySelector('#go').onclick = function() {
@@ -14,11 +14,13 @@
                     document.querySelector('h2').innerHTML = iframe
                 }
         
-
+                 
                // const gombok=document.getElementsByTagName('button')
-               
+             //  const found = document.querySelector('#bate')
+               const deel = document.querySelector('#found')
+             //  console.log('muuuuu', found)
                var view1 = document.getElementsByClassName('fir_st');
-               var view2 = document.getElementsByClassName('sec_ond');
+               var view2 = document.getElementsByClassName('sec_ond'); 
 
                  //changing button properties onmouseover
 
@@ -70,6 +72,43 @@
            }
        } 
     }
+
+     document.querySelector('#found').onclick = function() {
+      if (event.target.className =='fir_st') {
+        console.log('cheeeel')
+        let pLI = event.target.parentElement
+       // figure = event.target.parentNode
+        console.log('hi', pLI )
+       // document.querySelector('#found li').parentNode.removeChild(pLI)
+       
+      // remove(pLI)
+       pLI.parentNode.remove(pLI)
+       pLI.parentNode.style.display = 'none'
+       //inside = document.getElementById('per')
+     //  for(var i= 0; i<pLI.length; i++){
+        //if(pLI == k(i)){
+        //  console.log('INSIDE', k(i) )
+       // }
+       
+    //   }
+       //document.querySelector('#found li').removeChild(k.innerHTML)
+      //localStorage.setItem('remove', pLI.length)
+      // localStorage.removeItem.(localStorage.key(i))
+       //console.log('wwwwoooo', inside)
+      // localStorage.remove(pLiget)
+
+
+      }
+
+      if (event.target.className =='sec_ond') {
+        var changename = prompt("Please enter website name"); 
+    let pLI = event.target.parentElement.childNodes[1]
+    pii = event.target.parentNode.firstChild
+    pii.innerHTML = changename
+    console.log('pLI', pii.parentElement)
+
+    }
+     }
     
           
                // localStorage.clear();
@@ -86,26 +125,32 @@
                    actual = localStorage.getItem(localStorage.key(i))
 
                   // localStorage.setItem(localStorage.length, actual)
-                   console.log(retreived)
-                   console.log(actual)
+                   console.log('rrrrrrr', retreived)
+                   console.log('ammmmm',  actual)
+                 
                     bee = []
                     bee.push(actual)
                     console.log(bee)
                    for(x in bee){
                    var k = document.createElement('p')
+                   k.id = 'per'
                    var node = bee[x]
                    console.log(node)
                    k.innerHTML = node
                    console.log(k)
+                   inside = document.querySelector('#found li')
                    document.querySelector('#found li').appendChild(k)
-                   }
+
+                   } 
+
+                
                    //localStorage.clear();
 
                    }
                    
                     //console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))); }
                     
-                
+                  
             })
         </script>
     
@@ -114,13 +159,13 @@
         <div class="wrapper">
             <div class="left">
             <h1>links to free Animes download websites</h1>
-            <ul id="found">
-                <a href="https://gogoanime.pe/">gogoanime.pe</a>
-
-                <li> {{animeweb}} </li>
-                
-                
-            </ul>
+            <ol id="found">
+                <li > 
+                  <a href="https://gogoanime.pe/">gogoanime.pe</a>
+                  <!-- {{animeweb}}   -->
+                  
+                </li>
+            </ol>
             <a href="{% url 'websites'%}">WEBSITES</a>
             </div>
             <div class="right">
