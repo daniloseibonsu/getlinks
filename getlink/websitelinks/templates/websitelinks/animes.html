@@ -73,45 +73,28 @@
        } 
     }
 
-     document.querySelector('#found').onclick = function() {
-      if (event.target.className =='fir_st') {
-        console.log('cheeeel')
-        let pLI = event.target.parentElement
-       // figure = event.target.parentNode
-        console.log('hi', pLI )
-       // document.querySelector('#found li').parentNode.removeChild(pLI)
+    // document.querySelector('#found').onclick = function() {
+    //  if (event.target.className =='fir_st') {
+    //    console.log('cheeeel')
+      //  let pLI = event.target.parentElement
+      //  console.log('hi', pLI )
+      // pLI.parentNode.remove(pLI)
+      // pLI.parentNode.style.display = 'none'
        
-      // remove(pLI)
-       pLI.parentNode.remove(pLI)
-       pLI.parentNode.style.display = 'none'
-       //inside = document.getElementById('per')
-     //  for(var i= 0; i<pLI.length; i++){
-        //if(pLI == k(i)){
-        //  console.log('INSIDE', k(i) )
-       // }
-       
-    //   }
-       //document.querySelector('#found li').removeChild(k.innerHTML)
-      //localStorage.setItem('remove', pLI.length)
-      // localStorage.removeItem.(localStorage.key(i))
-       //console.log('wwwwoooo', inside)
-      // localStorage.remove(pLiget)
+     // }
 
+     // if (event.target.className =='sec_ond') {
+     //   var changename = prompt("Please enter website name"); 
+   // let pLI = event.target.parentElement.childNodes[1]
+ //   pii = event.target.parentNode.firstChild
+  //  pii.innerHTML = changename
+  //  console.log('pLI', pii.parentElement)
 
-      }
-
-      if (event.target.className =='sec_ond') {
-        var changename = prompt("Please enter website name"); 
-    let pLI = event.target.parentElement.childNodes[1]
-    pii = event.target.parentNode.firstChild
-    pii.innerHTML = changename
-    console.log('pLI', pii.parentElement)
-
-    }
-     }
+   // }
+   //  }
     
           
-               // localStorage.clear();
+                // localStorage.clear();
                  // localStorage.removeItem('got')
                 pLiget = localStorage.getItem('file')
                 if(pLiget != null){
@@ -121,15 +104,33 @@
                 }
                    for ( var i = 0; i < localStorage.length; ++i ) { 
                    //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
-                   retreived = localStorage.key(i)//+":"+
-                   actual = localStorage.getItem(localStorage.key(i))
+                   keyvalue = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
+                   key  = localStorage.key(i)//+":"+
+                   //key = keyvalue[0]
+                   keya = []
+                  
+                   if (!(key in keya) ){
+                    keya.push(key)
+                    key = keya
+                    keya.sort((a, b) => a - b);
+                   }
+                   console.log('keyaa', keya)
+                 
 
+                   actual = localStorage.getItem(localStorage.key(i))
+                   
+                  // c = document.createElement('p')
+                  // c.innerHTML = actual
+                  
                   // localStorage.setItem(localStorage.length, actual)
-                   console.log('rrrrrrr', retreived)
-                   console.log('ammmmm',  actual)
+                   console.log(keyvalue)
+                   console.log('rrrrrrr', key)
+                   console.log('ammmmm',  actual )
+                   console.log(keyvalue)
                  
                     bee = []
                     bee.push(actual)
+                    bee.sort((a, b) => a - b);
                     console.log(bee)
                    for(x in bee){
                    var k = document.createElement('p')
@@ -137,12 +138,94 @@
                    var node = bee[x]
                    console.log(node)
                    k.innerHTML = node
-                   console.log(k)
+                   console.log('yhissss',k)
                    inside = document.querySelector('#found li')
-                   document.querySelector('#found li').appendChild(k)
+                   const liElements = Array.from(inside);
+                   console.log('insideiii', liElements)
+                   liElements.sort((li1,li2) => li1.textContent.localeCompare(li2.textContent));
 
+                   inside.appendChild(k)
+
+                  // document.querySelector('#found li').appendChild(k)
+                  
+                  
                    } 
+                   document.querySelector('#found').onclick = function() {
+                   if (event.target.className =='fir_st') {
+                        console.log('cheeeel')
+                        let pLI = event.target.parentElement
+                        // figure = event.target.parentNode
+                        console.log('hi', pLI )
+                     //  document.querySelector('#found li').parentNode.removeChild(pLI)
+       
+                        // remove(pLI)
+                      //  pLI.parentNode.remove(pLI)
+                       // pLI.parentNode.style.display = 'none'
+                        //inside = document.getElementById('per')
+                        //  for(var i= 0; i<pLI.length; i++){
+                        //if(pLI == k(i)){
+                       //  console.log('INSIDE', k(i) )
+                        // }
+       
+                         //   }
+                         //document.querySelector('#found li').removeChild(k.innerHTML)
+                        //localStorage.setItem('remove', pLI.length)
+                          //localStorage.removeItem('1')
+                       //console.log('wwwwoooo', inside)
+                       // localStorage.remove(pLiget)
+                       const re = pLI;
 
+                        Object.values(localStorage).forEach(function (value) {
+                        if (value.match(re)) {
+                        //do something
+                        console.log ('payyyyy', keya)
+                        localStorage.removeItem(keya)
+                      //  window.location.href = "{%url 'animes'%}"
+                        }
+                        });
+
+                      }
+
+                     if (event.target.className =='sec_ond') {
+                      pLI = event.target.parentElement
+                      if(keyvalue.match(pLI)){
+                      console.log('thattta', keyvalue)
+                    }
+                     var changename = prompt("Please enter website name"); 
+                     window.location.href = "{%url 'animes'%}"
+                     //do something
+                    
+                     
+                    
+                                  
+
+                     
+                    //  pii = event.target.parentNode.firstChild
+                    // pal = pLI.parentNode.firstChild
+                    //  pii.innerHTML = changename
+                   //   console.log('piiiiiiiiiiiiiiii', pii)
+                    //  console.log('wooooo',pLI)
+                      
+                    //  localStorage.setItem(key, pLI.outerHTML)
+                    // localStorage.removeItem(key)
+                    //   get = localStorage.getItem(k)
+                    //   console.log('geet', get)
+                   //  pLI.innerHTML = changename
+                     
+                    // localStorage.setItem('new', pii)
+                     //pget = localStorage.getItem('new')
+                     //console.log('piiii',pget)
+                    
+                      //  window.location.href = "{%url 'animes'%}"
+                     
+                    
+                    
+                    // console.log('pLI', pal)
+                    // console.log('cgamjejnwjw',pii)
+                      
+
+                    }
+                 }
                 
                    //localStorage.clear();
 
@@ -159,13 +242,13 @@
         <div class="wrapper">
             <div class="left">
             <h1>links to free Animes download websites</h1>
-            <ol id="found">
+            <ul id="found">
                 <li > 
                   <a href="https://gogoanime.pe/">gogoanime.pe</a>
                   <!-- {{animeweb}}   -->
                   
                 </li>
-            </ol>
+            </ul>
             <a href="{% url 'websites'%}">WEBSITES</a>
             </div>
             <div class="right">
