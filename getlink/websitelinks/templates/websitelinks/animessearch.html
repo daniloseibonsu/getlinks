@@ -118,7 +118,7 @@
        } 
  
       console.log('outerHTML',pLI.outerHTML)
-      localStorage.setItem('file', pLI.outerHTML)
+      localStorage.setItem('file', JSON.stringify(pLI.outerHTML))
       window.location.href = "{%url 'animes'%}"
       window.close
 

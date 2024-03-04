@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head><title>animes link</title>
+      <!-- <link href = "{%static 'websitelinks/normalize.css'%}" rel = 'stylesheet'> -->
         <link href = "{%static 'websitelinks/wrapper.css'%}" rel = 'stylesheet'>
         <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'> 
         <script>
@@ -64,11 +65,11 @@
       for (var i=0; i<view2.length; i++) {
       if(view2[i].style.display == 'block'){
                 // do some stuff
-         view2[i].style.visibility = 'none'
+         view2[i].style.display = 'none'
       }
        else{
                // do some stuff
-             view2[i].style.visibility = 'none'
+             view2[i].style.display = 'none'
            }
        } 
     }
@@ -94,67 +95,116 @@
    //  }
     
           
-                // localStorage.clear();
+          
+               //  localStorage.clear();
                  // localStorage.removeItem('got')
-                pLiget = localStorage.getItem('file')
+                pLiget = JSON.parse(localStorage.getItem('file')) 
                 if(pLiget != null){
-                    localStorage.setItem(localStorage.length, pLiget)
+                    localStorage.setItem(localStorage.length,  pLiget)
                     localStorage.removeItem('file')
-
                 }
+                const items = [];
                    for ( var i = 0; i < localStorage.length; ++i ) { 
                    //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
+                  
                    keyvalue = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
+                  // const regex = /<li(?:.*?)>(.*?<\/li>)/g
+                  // extracted = []
+                  // const matches = regex.exec(keyvalue);
+                       //  if (matches) {
+                       //  const extractedText = matches[0];
+                      //   extracted.push(extractedText)
+                       //   console.log('found',extractedText);
+                      //   } else {
+                     //   console.log("No match found.");
+                     //    }
+                   
                    key  = localStorage.key(i)//+":"+
                    //key = keyvalue[0]
-                   keya = []
-                  
-                   if (!(key in keya) ){
-                    keya.push(key)
-                    key = keya
-                    keya.sort((a, b) => a - b);
-                   }
-                   console.log('keyaa', keya)
-                 
-
                    actual = localStorage.getItem(localStorage.key(i))
+                   
+                
                    
                   // c = document.createElement('p')
                   // c.innerHTML = actual
                   
                   // localStorage.setItem(localStorage.length, actual)
+                 // 
                    console.log(keyvalue)
                    console.log('rrrrrrr', key)
                    console.log('ammmmm',  actual )
                    console.log(keyvalue)
-                 
+                   items.push({key, actual});
+                  // if (key && actual) {
+                  // const count = localStorage.length;
+                  // const val = {
+                  //  actual,
+                  //  key: count,
+                  // }
+                  //  localStorage.setItem(key, val);
+                  //}
+                 // items.sort((a, b) => a.actual.key - b.actual.key)
                     bee = []
                     bee.push(actual)
                     bee.sort((a, b) => a - b);
                     console.log(bee)
                    for(x in bee){
-                   var k = document.createElement('p')
-                   k.id = 'per'
+                   var k = document.createElement('a')
                    var node = bee[x]
                    console.log(node)
                    k.innerHTML = node
                    console.log('yhissss',k)
-                   inside = document.querySelector('#found li')
-                   const liElements = Array.from(inside);
-                   console.log('insideiii', liElements)
-                   liElements.sort((li1,li2) => li1.textContent.localeCompare(li2.textContent));
-
-                   inside.appendChild(k)
-
-                  // document.querySelector('#found li').appendChild(k)
+                 //  inside = document.getElementById('found')
+                   const c = k
+                   
                   
+                  //  inside.appendChild(k)
+                    
+                 //   inside.insertAdjacentHTML('afterEnd', c)
+                
                   
+                  // console.log('ininini',inside.lastChild)
+                  
+                    document.querySelector('#found li').appendChild(c )
                    } 
+                
+                  console.log('xx:', items)
+                  console.log('vv:', items.key)
+               
+
+                  
                    document.querySelector('#found').onclick = function() {
                    if (event.target.className =='fir_st') {
                         console.log('cheeeel')
+                        const box = []
+
+                        for (var i=0; i<view1.length; i++) {
+                          if(view1[i].style.display == 'block'){
+                            // do some stuff
+                             view1[i].style.display = 'none'
+                             }
+                             else{
+                                  // do some stuff
+                           view1[i].style.display = 'none'
+                          }
+                         } 
+
+                         for (var i=0; i<view2.length; i++) {
+                               if(view2[i].style.display == 'block'){
+                                 // do some stuff
+                                view2[i].style.display = 'none'
+                                 }
+                                 else{
+                                 // do some stuff
+                               view2[i].style.display = 'none'
+                              }
+                             } 
+
                         let pLI = event.target.parentElement
-                        // figure = event.target.parentNode
+                        console.log('DISPLAY', pLI.style.visibility)
+                      box.push(pLI.outerHTML)
+                      console.log('Box', box)
+                         figure = event.target.parentNode
                         console.log('hi', pLI )
                      //  document.querySelector('#found li').parentNode.removeChild(pLI)
        
@@ -173,35 +223,84 @@
                           //localStorage.removeItem('1')
                        //console.log('wwwwoooo', inside)
                        // localStorage.remove(pLiget)
-                       const re = pLI;
-
-                        Object.values(localStorage).forEach(function (value) {
-                        if (value.match(re)) {
+                       const re = key;
+                     
+                        Object.keys(localStorage).forEach(function (key) {
+                        if (key.match(re)) {
                         //do something
-                        console.log ('payyyyy', keya)
-                        localStorage.removeItem(keya)
-                      //  window.location.href = "{%url 'animes'%}"
-                        }
-                        });
-
-                      }
+                        console.log ('payyyyy', key)
+                        //localStorage.removeItem(key)
+                        console.log('pppppp', pLI.outerHTML.length )
+                        console.log('vvvvvvvv',key)
+                        console.log('xx:', items)
+        
+                        let itemYouWant = null
+                        items.forEach((item) => {
+                          console.log(item.actual.length)
+                        if (item.actual === pLI.outerHTML) {
+                         itemYouWant = item;
+                         keynum = itemYouWant.key
+                         localStorage.removeItem(keynum)
+                          }
+                         });
+                         console.log('IWANT', itemYouWant)
+                         console.log('IKEY', keynum)
+                        }})
+                        window.location.href = "{%url 'animes'%}"
+                   }
+                  
+                       
 
                      if (event.target.className =='sec_ond') {
+
+                      for (var i=0; i<view1.length; i++) {
+                          if(view1[i].style.display == 'block'){
+                            // do some stuff
+                             view1[i].style.display = 'none'
+                             }
+                             else{
+                                  // do some stuff
+                           view1[i].style.display = 'none'
+                          }
+                         } 
+
+                         for (var i=0; i<view2.length; i++) {
+                               if(view2[i].style.display == 'block'){
+                                 // do some stuff
+                                view2[i].style.display = 'none'
+                                 }
+                                 else{
+                                 // do some stuff
+                               view2[i].style.display = 'none'
+                              }
+                             } 
+                     
                       pLI = event.target.parentElement
-                      if(keyvalue.match(pLI)){
-                      console.log('thattta', keyvalue)
-                    }
-                     var changename = prompt("Please enter website name"); 
-                     window.location.href = "{%url 'animes'%}"
+                     // if(keyvalue.match(pLI)){
+                     // console.log('thattta', keyvalue)
+                    //}
+                    var changename = prompt("Please enter website name"); 
+                    let itemYouWant = null
+                        items.forEach((item) => {
+                          console.log(item.actual.length)
+                        if (item.actual === pLI.outerHTML) {
+                         itemYouWant = item;
+                         pLI.firstChild.innerHTML = changename
+                         keynum = itemYouWant.key
+                         localStorage.removeItem(keynum)
+                         localStorage.setItem(keynum, pLI.outerHTML)
+                          }
+                         });
+                         console.log('IWANT', itemYouWant)
+                         console.log('IKEY', keynum)
+                        
+                   
+                   
+                    // window.location.href = "{%url 'animes'%}"
                      //do something
                     
-                     
-                    
-                                  
-
-                     
-                    //  pii = event.target.parentNode.firstChild
-                    // pal = pLI.parentNode.firstChild
+                      pii = event.target.parentNode.firstChild
+                     //pal = pLI.parentNode.firstChild
                     //  pii.innerHTML = changename
                    //   console.log('piiiiiiiiiiiiiiii', pii)
                     //  console.log('wooooo',pLI)
@@ -220,8 +319,8 @@
                      
                     
                     
-                    // console.log('pLI', pal)
-                    // console.log('cgamjejnwjw',pii)
+                     console.log('pLI', pLI.firstChild)
+                     console.log('cgamjejnwjw',pii)
                       
 
                     }
@@ -239,16 +338,15 @@
     
     </head>
     <body> 
-        <div class="wrapper">
+        <!--<div class="wrapper"> -->
             <div class="left">
             <h1>links to free Animes download websites</h1>
-            <ul id="found">
-                <li > 
-                  <a href="https://gogoanime.pe/">gogoanime.pe</a>
+            <ol id="found">
+              <li > 
+             <a href="https://gogoanime.pe/">gogoanime.pe</a>
                   <!-- {{animeweb}}   -->
-                  
                 </li>
-            </ul>
+              </ol>
             <a href="{% url 'websites'%}">WEBSITES</a>
             </div>
             <div class="right">
@@ -257,6 +355,6 @@
                 </button>
               <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
             </div>
-        </div>
+      <!--  </div> -->
     </body>
 </html>
