@@ -27,7 +27,7 @@ def get():
     page4 = list()
     pages = list()
 
-    text = "free download animes"
+    text = "free download images"
     url = 'https://google.com/search?q=' + text
     #url = 'https://mp4mania1.net'
     stop = 0

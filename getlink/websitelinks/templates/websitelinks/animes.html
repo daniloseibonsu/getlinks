@@ -102,11 +102,14 @@
                 if(pLiget != null){
                     localStorage.setItem(localStorage.length,  pLiget)
                     localStorage.removeItem('file')
+                    
                 }
-                const items = [];
+                finest = []
+                 const items = [];
                    for ( var i = 0; i < localStorage.length; ++i ) { 
                    //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
-                  
+                  finest.push(localStorage.file)
+                  console.log('FINEST', finest)
                    keyvalue = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
                   // const regex = /<li(?:.*?)>(.*?<\/li>)/g
                   // extracted = []
@@ -209,7 +212,7 @@
                      //  document.querySelector('#found li').parentNode.removeChild(pLI)
        
                         // remove(pLI)
-                      //  pLI.parentNode.remove(pLI)
+                        pLI.parentNode.remove(pLI)
                        // pLI.parentNode.style.display = 'none'
                         //inside = document.getElementById('per')
                         //  for(var i= 0; i<pLI.length; i++){
@@ -246,7 +249,7 @@
                          console.log('IWANT', itemYouWant)
                          console.log('IKEY', keynum)
                         }})
-                        window.location.href = "{%url 'animes'%}"
+                      //  window.location.href = "{%url 'animes'%}"
                    }
                   
                        
@@ -329,6 +332,9 @@
                    //localStorage.clear();
 
                    }
+
+              
+              
                    
                     //console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))); }
                     

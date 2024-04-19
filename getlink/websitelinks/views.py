@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.template import loader
 import subprocess
 from .websearch import get
+from .games import game
 from asgiref.sync import sync_to_async
 import time, asyncio
 
@@ -38,6 +39,14 @@ def animessearch(request) :
     context['context'] = get()
     
     t = loader.get_template("websitelinks/animessearch.html")
+    return HttpResponse(t.render(context, request))
+
+def gamessearch(request) :
+    
+    context = dict()
+    context['context'] = game()
+    
+    t = loader.get_template("websitelinks/gamessearch.html")
     return HttpResponse(t.render(context, request))
     
    

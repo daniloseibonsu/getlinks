@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-    <head><title><h1>animessarch</h1></title>
+    <head><title><h1>gamessarch</h1></title>
  <script>
   document.addEventListener('DOMContentLoaded', function() {   
      const Found = document.querySelector('#found')
@@ -118,9 +118,8 @@
        } 
  
       console.log('outerHTML',pLI.outerHTML)
-      
-      localStorage.setItem('file', JSON.stringify(pLI.outerHTML))
-      window.location.href = "{%url 'animes'%}"
+      localStorage.setItem( 'games', JSON.stringify(pLI.outerHTML))
+      window.location.href = "{%url 'games'%}"
       window.close
 
     // const gombok=document.getElementsByTagName('button')
@@ -142,11 +141,11 @@
     </head>
     <body>
         <h2>free download links</h2>
-        <a href="{%url 'animes'%}">Back</a>
+        <a href="{%url 'games'%}">Back</a>
         <ol id="My-List">
           {% for site in context %} 
           {% for a in site %}
-             <li id="checky"><a href="{{a}}">{{a}}</a></li> 
+             <li id="games"><a href="{{a}}">{{a}}</a></li> 
           {%empty%}
              <li>no webpage available</li>
           {% endfor %}

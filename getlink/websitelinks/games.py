@@ -17,7 +17,7 @@ ctx.verify_mode = ssl.CERT_NONE
 
 got = list()
 
-def get():
+def game():
     mypage = list()
     href = list()
     nextpage = list()
@@ -27,7 +27,7 @@ def get():
     page4 = list()
     pages = list()
 
-    text = "free download animes"
+    text = "free download games"
     url = 'https://google.com/search?q=' + text
     #url = 'https://mp4mania1.net'
     stop = 0
