@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-    <head><title><h1>gamessarch</h1></title>
+    <head><title><h1>moviessarch</h1></title>
  <script>
   document.addEventListener('DOMContentLoaded', function() {   
      const Found = document.querySelector('#found')
@@ -118,8 +118,8 @@
        } 
  
       console.log('outerHTML',pLI.outerHTML)
-      localStorage.setItem( 'games', JSON.stringify(pLI.outerHTML))
-      window.location.href = "{%url 'games'%}"
+      localStorage.setItem( 'movies', JSON.stringify(pLI.outerHTML))
+      window.location.href = "{%url 'movies'%}"
       window.close
 
     // const gombok=document.getElementsByTagName('button')
@@ -128,7 +128,7 @@
 
     if (event.target.className =='sec_ond') {
     let pLI = event.target.parentElement
-   // MyList.removeChild(pLI)
+    //MyList.removeChild(pLI)
     window.open(pLI.childNodes[0].href,'_blank')
 
     }
@@ -142,11 +142,11 @@
     </head>
     <body>
         <h2>free download links</h2>
-        <a href="{%url 'games'%}">Back</a>
+        <a href="{%url 'movies'%}">Back</a>
         <ol id="My-List">
           {% for site in context %} 
           {% for a in site %}
-             <li id="games"><a href="{{a}}">{{a}}</a></li> 
+             <li id="movies"><a href="{{a}}">{{a}}</a></li> 
           {%empty%}
              <li>no webpage available</li>
           {% endfor %}
@@ -158,7 +158,3 @@
       
     </body>
 </html>
-
-
-
-                  

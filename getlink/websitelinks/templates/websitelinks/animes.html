@@ -157,8 +157,12 @@
                    console.log(node)
                    k.innerHTML = node
                    console.log('yhissss',k)
+                   if(k.childNodes[0].id == 'anime'){
+                      console.log('RIGHT')
+                      document.querySelector('#found li').appendChild(k )
+                     }
                  //  inside = document.getElementById('found')
-                   const c = k
+                 //  const c = k
                    
                   
                   //  inside.appendChild(k)
@@ -168,7 +172,7 @@
                   
                   // console.log('ininini',inside.lastChild)
                   
-                    document.querySelector('#found li').appendChild(c )
+                   // document.querySelector('#found li').appendChild(c )
                    } 
                 
                   console.log('xx:', items)

@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>games link</title>
+        <title>music links</title>
         <link href = "{%static 'websitelinks/wrapper.css'%}" rel = 'stylesheet'>
         <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+              document.addEventListener('DOMContentLoaded', function() {
           //  let web = ('<li>{{animeweb}}</li>')
-            const list = document.getElementById("fond")
-             let iframe =('(<a href = "{% url 'gamessearch'%}"> gamessearch</a>)')
+            const list = document.getElementById("mus")
+             let iframe =('(<a href = "{% url 'musicssearch'%}"> musicssaerch</a>)')
                 document.querySelector('#go').onclick = function() {
                     ('iframe')
                     document.querySelector('h2').innerHTML = iframe
@@ -18,14 +18,14 @@
                  
                // const gombok=document.getElementsByTagName('button')
              //  const found = document.querySelector('#bate')
-               const deel = document.querySelector('#fond')
+               const deel = document.querySelector('#mus')
              //  console.log('muuuuu', found)
                var view1 = document.getElementsByClassName('fir_st');
                var view2 = document.getElementsByClassName('sec_ond'); 
 
                  //changing button properties onmouseover
 
-      document.querySelector('#fond').onmouseover = function() {
+      document.querySelector('#mus').onmouseover = function() {
       for (var i=0; i<view1.length; i++) {
       if(view1[i].style.display == 'none') {
                   // do some stuff
@@ -50,7 +50,7 @@
     }
      //changing button properties onmouseout
      
-     document.querySelector('#fond').onmouseout = function() {
+     document.querySelector('#mus').onmouseout = function() {
       for (var i=0; i<view1.length; i++) {
       if(view1[i].style.display == 'block'){
        // do some stuff
@@ -98,16 +98,16 @@
           
                 // localStorage.clear();
                  // localStorage.removeItem('got')
-                gamesget = JSON.parse(localStorage.getItem('games'))
-                if (window.location.href !=  "{%url 'games'%}" ){
+                musicget = JSON.parse(localStorage.getItem('music'))
+                if (window.location.href !=  "{%url 'musics'%}" ){
                   console.log(window.location.href)
                 }
                 total = []
                 const them = []
                 const stored = []
-                if(gamesget != null){
-                    localStorage.setItem(localStorage.length,  gamesget)
-                    localStorage.removeItem('games')
+                if(musicget != null){
+                    localStorage.setItem(localStorage.length,  musicget)
+                    localStorage.removeItem('music')
                  // total.push(localStorage.games)  
                 }
 
@@ -158,9 +158,9 @@
                      console.log(node)
                      k.innerHTML = node
                      console.log('yhissss',k.childNodes[0].id)
-                     if(k.childNodes[0].id == 'games'){
+                     if(k.childNodes[0].id == 'music'){
                       console.log('RIGHT')
-                      document.querySelector('#fond').appendChild(k )
+                      document.querySelector('#mus').appendChild(k )
                      }
                   
                   }
@@ -217,7 +217,7 @@
                 
 
                   
-                   document.querySelector('#fond').onclick = function() {
+                   document.querySelector('#mus').onclick = function() {
                    if (event.target.className =='fir_st') {
                         console.log('cheeeel')
                         const box = []
@@ -381,21 +381,21 @@
             })
         </script>
     </head>
-    
     <body>
         <div class="left">
-        <h1>links to free Games download websites</h1>
-        <ol id="fond">
-            <li><a href="https://repack-games.com/">repack-games</a></li>
-            <li><a href="https://www.apunkagames.com/">apunkagames</a></li>
-        </ol>
-        <a href="{% url 'websites'%}">WEBSITES</a>
-    </div>
-    <div class="right">
-        <h3>links from Google</h3>
-        <button id="go"><h2>get</h2>
-        </button>
-      <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
-    </div>
+            <h1>links to free music download websites</h1>
+            <ol id="mus">
+             <li><a href="https://mp3quack.lol/">mp3quack.lol</a></li>
+             <li><a href="https://mp3-juices.io/">mp3-juices.io</a></li>
+             <li><a href="https://mp3juice.buzz/">mp3juice.buzz</a></li>
+            </ol>
+            <a href="{% url 'websites'%}">WEBSITES</a>
+        </div>
+        <div class="right">
+            <h3>links from Google</h3>
+            <button id="go"><h2>get</h2>
+            </button>
+          <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
+        </div>
     </body>
 </html>

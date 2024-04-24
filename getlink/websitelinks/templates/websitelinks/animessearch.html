@@ -129,7 +129,11 @@
 
     if (event.target.className =='sec_ond') {
     let pLI = event.target.parentElement
-    MyList.removeChild(pLI)
+    //MyList.removeChild(pLI)
+    window.open(pLI.childNodes[0].href,'_blank')
+  //  console.log(pLI.childNodes[0].href)
+  //  var win = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top="+(screen.height-400)+",left="+(screen.width-840));
+//win.document.body.innerHTML = pLI.childNodes[0].href;
 
     }
 
@@ -146,7 +150,7 @@
         <ol id="My-List">
           {% for site in context %} 
           {% for a in site %}
-             <li id="checky"><a href="{{a}}">{{a}}</a></li> 
+             <li id="anime"><a href="{{a}}">{{a}}</a></li> 
           {%empty%}
              <li>no webpage available</li>
           {% endfor %}

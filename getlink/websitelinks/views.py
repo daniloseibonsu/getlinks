@@ -6,6 +6,9 @@ from django.template import loader
 import subprocess
 from .websearch import get
 from .games import game
+from .movies import movie
+from .musics import music
+from .images import image
 from asgiref.sync import sync_to_async
 import time, asyncio
 
@@ -20,8 +23,8 @@ def websites(request):
 def movies(request) :
     return render(request, "websitelinks/movies.html")    
 
-def music(request) :
-    return render(request, "websitelinks/music.html")    
+def musics(request) :
+    return render(request, "websitelinks/musics.html")    
 
 def games(request) :
     return render(request, "websitelinks/games.html")    
@@ -47,6 +50,30 @@ def gamessearch(request) :
     context['context'] = game()
     
     t = loader.get_template("websitelinks/gamessearch.html")
+    return HttpResponse(t.render(context, request))
+
+def moviessearch(request) :
+    
+    context = dict()
+    context['context'] = movie()
+    
+    t = loader.get_template("websitelinks/moviessearch.html")
+    return HttpResponse(t.render(context, request))
+
+def musicssearch(request) :
+    
+    context = dict()
+    context['context'] = music()
+    
+    t = loader.get_template("websitelinks/musicssearch.html")
+    return HttpResponse(t.render(context, request))
+
+def imagessearch(request) :
+    
+    context = dict()
+    context['context'] = image()
+    
+    t = loader.get_template("websitelinks/imagessearch.html")
     return HttpResponse(t.render(context, request))
     
    

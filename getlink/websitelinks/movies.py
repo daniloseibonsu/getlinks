@@ -17,7 +17,7 @@ ctx.verify_mode = ssl.CERT_NONE
 
 got = list()
 
-def get():
+def movie():
     mypage = list()
     href = list()
     nextpage = list()

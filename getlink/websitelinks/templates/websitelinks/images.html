@@ -1,10 +1,399 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>images link</title>
+        <link href = "{%static 'websitelinks/wrapper.css'%}" rel = 'stylesheet'>
+        <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'>
+        <script>
+              document.addEventListener('DOMContentLoaded', function() {
+          //  let web = ('<li>{{animeweb}}</li>')
+            const list = document.getElementById("img")
+             let iframe =('(<a href = "{% url 'imagessearch'%}"> imagessearch</a>)')
+                document.querySelector('#go').onclick = function() {
+                    ('iframe')
+                    document.querySelector('h2').innerHTML = iframe
+                }
+        
+                 
+               // const gombok=document.getElementsByTagName('button')
+             //  const found = document.querySelector('#bate')
+               const deel = document.querySelector('#img')
+             //  console.log('muuuuu', found)
+               var view1 = document.getElementsByClassName('fir_st');
+               var view2 = document.getElementsByClassName('sec_ond'); 
+
+                 //changing button properties onmouseover
+
+      document.querySelector('#img').onmouseover = function() {
+      for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.display == 'none') {
+                  // do some stuff
+       view1[i].style.display = 'block'
+      }
+        else{
+                 // do some stuff
+               view1[i].style.display = 'block'
+            }
+     } 
+
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.display == 'none'){
+                // do some stuff
+         view2[i].style.display = 'block'
+      }
+       else{
+               // do some stuff
+             view2[i].style.display = 'block'
+           }
+       } 
+    }
+     //changing button properties onmouseout
+     
+     document.querySelector('#img').onmouseout = function() {
+      for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.display == 'block'){
+       // do some stuff
+         view1[i].style.display = 'none'
+         }
+           else{
+                   // do some stuff
+                 view1[i].style.display = 'none'
+              }
+       } 
+
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.display == 'block'){
+                // do some stuff
+         view2[i].style.display = 'none'
+      }
+       else{
+               // do some stuff
+             view2[i].style.display = 'none'
+           }
+       } 
+    }
+
+    // document.querySelector('#found').onclick = function() {
+    //  if (event.target.className =='fir_st') {
+    //    console.log('cheeeel')
+      //  let pLI = event.target.parentElement
+      //  console.log('hi', pLI )
+      // pLI.parentNode.remove(pLI)
+      // pLI.parentNode.style.display = 'none'
+       
+     // }
+
+     // if (event.target.className =='sec_ond') {
+     //   var changename = prompt("Please enter website name"); 
+   // let pLI = event.target.parentElement.childNodes[1]
+ //   pii = event.target.parentNode.firstChild
+  //  pii.innerHTML = changename
+  //  console.log('pLI', pii.parentElement)
+
+   // }
+   //  }
+    
+          
+          
+                // localStorage.clear();
+                 // localStorage.removeItem('got')
+                imagesget = JSON.parse(localStorage.getItem('images'))
+                if (window.location.href !=  "{%url 'images'%}" ){
+                  console.log(window.location.href)
+                }
+                total = []
+                const them = []
+                const stored = []
+                if(imagesget != null){
+                    localStorage.setItem(localStorage.length,  imagesget)
+                    localStorage.removeItem('images')
+                 // total.push(localStorage.games)  
+                }
+
+              //   for(var i=0; i< gamesget.length; ++i){
+               //   total.push(gamesget[i])
+               //   console.log('TOTOT',total)
+               //  }
+                
+                const gaas = []
+                const begin = []
+               
+                   for ( var i = 0; i < localStorage.length; ++i ) { 
+                   //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
+                 //  const regex = /<li(?:.*?)>(.*?<\/li>)/g
+            
+                  // extracted = []
+                  // const matches = regex.exec(localStorage.games);
+                    //     if (matches) {
+                     //    const extractedText = matches[0];
+                      //   extracted.push(extractedText)
+                      //    console.log('found',extractedText);
+                      //   } else {
+                      //  console.log("No match found.");
+                       //  }
+                
+                   
+                   keyvalues = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
+                   console.log('type', typeof(keyvalues[0]))
+                  
+                  // keey  = localStorage.key(i)//+":"+
+                   //key = keyvalue[0]
+                  // actuall = localStorage.getItem(localStorage.key(i))
+                
+                 
+                     keey  = localStorage.key(i)//+":"+
+                     actuall = localStorage.getItem(localStorage.key(i))
+                     console.log('rrrrrrr', keey)
+                     console.log('ammmmm',  actuall )
+                     console.log(keyvalues)
+                     gaas.push({keey, actuall});
+                     
+                     gee = []
+                     gee.push(actuall)
+                     console.log(gee)
+                     for(x in gee){
+                     var k = document.createElement('a')
+                     var node = gee[x]
+                     console.log(node)
+                     k.innerHTML = node
+                     console.log('yhissss',k.childNodes[0].id)
+                     if(k.childNodes[0].id == 'images'){
+                      console.log('RIGHT')
+                      document.querySelector('#img').appendChild(k )
+                     }
+                  
+                  }
+                 
+
+                
+                  
+	                 // It is not a number
+
+                     
+                   
+                  // if (key && actual) {
+                  // const count = localStorage.length;
+                  // const val = {
+                  //  actual,
+                  //  key: count,
+                  // }
+                  //  localStorage.setItem(key, val);
+                  //}
+                 // items.sort((a, b) => a.actual.key - b.actual.key)
+                    
+                   
+
+                 //  inside = document.getElementById('found')
+                  // const c = k
+              
+                  //  inside.appendChild(k)
+                    
+                  //  inside.insertAdjacentHTML('afterEnd', c)
+                
+                  
+                  // console.log('ininini',inside.lastChild)
+
+                 
+
+                  
+                   
+                  // c = document.createElement('p')
+                  // c.innerHTML = actual
+                  
+                  // localStorage.setItem(localStorage.length, actual)
+                 
+                 
+                   
+                  
+                
+                  console.log('xx:', gaas)
+                  console.log('vv:', gaas.keey)
+                  //console.log('import', items)
+                 
+                  console.log('keyvalues', stored)
+               
+         
+                
+
+                  
+                   document.querySelector('#img').onclick = function() {
+                   if (event.target.className =='fir_st') {
+                        console.log('cheeeel')
+                        const box = []
+
+                        for (var i=0; i<view1.length; i++) {
+                          if(view1[i].style.display == 'block'){
+                            // do some stuff
+                             view1[i].style.display = 'none'
+                             }
+                             else{
+                                  // do some stuff
+                           view1[i].style.display = 'none'
+                          }
+                         } 
+
+                         for (var i=0; i<view2.length; i++) {
+                               if(view2[i].style.display == 'block'){
+                                 // do some stuff
+                                view2[i].style.display = 'none'
+                                 }
+                                 else{
+                                 // do some stuff
+                               view2[i].style.display = 'none'
+                              }
+                             } 
+
+                        let pLI = event.target.parentElement
+                        console.log('DISPLAY', pLI.style.visibility)
+                      box.push(pLI.outerHTML)
+                      console.log('Box', box)
+                         figure = event.target.parentNode
+                        console.log('hi', pLI )
+                     //  document.querySelector('#found li').parentNode.removeChild(pLI)
+       
+                        // remove(pLI)
+                        pLI.parentNode.remove(pLI)
+                       // pLI.parentNode.style.display = 'none'
+                        //inside = document.getElementById('per')
+                        //  for(var i= 0; i<pLI.length; i++){
+                        //if(pLI == k(i)){
+                       //  console.log('INSIDE', k(i) )
+                        // }
+       
+                         //   }
+                         //document.querySelector('#found li').removeChild(k.innerHTML)
+                        //localStorage.setItem('remove', pLI.length)
+                          //localStorage.removeItem('1')
+                       //console.log('wwwwoooo', inside)
+                       // localStorage.remove(pLiget)
+
+                       const re = keey;
+                     
+                        Object.keys(localStorage).forEach(function (key) {
+                        if (key.match(re)) {
+                        //do something
+                       // console.log ('payyyyy', key)
+                        localStorage.removeItem(key)
+                        console.log('pppppp', pLI.outerHTML.length )
+                        console.log('vvvvvvvv',key)
+                        console.log('xx:', gaas)
+                        
+        
+                        let itemYouWant = null
+                        gaas.forEach((item) => {
+                          console.log(item.actuall.length)
+                        if (item.actuall === pLI.outerHTML) {
+                         itemYouWant = item;
+                         keynum = itemYouWant.keey
+                         localStorage.removeItem(keynum)
+                          }
+                         });
+                         console.log('IWANT', itemYouWant)
+                         console.log('IKEY', keynum)
+                        }})
+                      //  window.location.href = "{%url 'animes'%}"
+                   }
+                  
+                       
+
+                     if (event.target.className =='sec_ond') {
+
+                      for (var i=0; i<view1.length; i++) {
+                          if(view1[i].style.display == 'block'){
+                            // do some stuff
+                             view1[i].style.display = 'none'
+                             }
+                             else{
+                                  // do some stuff
+                           view1[i].style.display = 'none'
+                          }
+                         } 
+
+                         for (var i=0; i<view2.length; i++) {
+                               if(view2[i].style.display == 'block'){
+                                 // do some stuff
+                                view2[i].style.display = 'none'
+                                 }
+                                 else{
+                                 // do some stuff
+                               view2[i].style.display = 'none'
+                              }
+                             } 
+                     
+                      pLI = event.target.parentElement
+                     // if(keyvalue.match(pLI)){
+                     // console.log('thattta', keyvalue)
+                    //}
+                    var changename = prompt("Please enter website name"); 
+                    let itemYouWant = null
+                        gaas.forEach((item) => {
+                          console.log(item.actuall.length)
+                        if (item.actuall === pLI.outerHTML) {
+                         itemYouWant = item;
+                         pLI.firstChild.innerHTML = changename
+                         keynum = itemYouWant.keey
+                         localStorage.removeItem(keynum)
+                         localStorage.setItem(keynum, pLI.outerHTML)
+                          }
+                         });
+                         console.log('IWANT', itemYouWant)
+                         console.log('IKEY', keynum)
+                        
+                   
+                   
+                    // window.location.href = "{%url 'animes'%}"
+                     //do something
+                    
+                      pii = event.target.parentNode.firstChild
+                     //pal = pLI.parentNode.firstChild
+                    //  pii.innerHTML = changename
+                   //   console.log('piiiiiiiiiiiiiiii', pii)
+                    //  console.log('wooooo',pLI)
+                      
+                    //  localStorage.setItem(key, pLI.outerHTML)
+                    // localStorage.removeItem(key)
+                    //   get = localStorage.getItem(k)
+                    //   console.log('geet', get)
+                   //  pLI.innerHTML = changename
+                     
+                    // localStorage.setItem('new', pii)
+                     //pget = localStorage.getItem('new')
+                     //console.log('piiii',pget)
+                    
+                      //  window.location.href = "{%url 'animes'%}"
+                     
+                     console.log('pLI', pLI.firstChild)
+                     console.log('cgamjejnwjw',pii)
+                      
+                    }
+                 }
+                
+                   //localStorage.clear();
+
+                   }
+               
+               
+                   
+                    //console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))); }
+                  
+                  
+            })
+        </script>
     </head>
     <body>
-        <h1>Images</h1>
-        <a href="{% url 'websites'%}">WEBSITES</a>
+        <div class="left">
+            <h1>links to free Images download websites</h1>
+            <ol id="img">
+              
+            </ol>
+            <a href="{% url 'websites'%}">WEBSITES</a>
+        </div>
+        <div class="right">
+            <h3>links from Google</h3>
+            <button id="go"><h2>get</h2>
+            </button>
+          <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
+        </div>
     </body>
 </html>

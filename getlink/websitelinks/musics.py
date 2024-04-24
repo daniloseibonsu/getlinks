@@ -17,7 +17,7 @@ ctx.verify_mode = ssl.CERT_NONE
 
 got = list()
 
-def get():
+def music():
     mypage = list()
     href = list()
     nextpage = list()
