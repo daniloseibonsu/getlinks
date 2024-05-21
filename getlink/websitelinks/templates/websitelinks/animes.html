@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head><title>animes link</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
       <!-- <link href = "{%static 'websitelinks/normalize.css'%}" rel = 'stylesheet'> -->
         <link href = "{%static 'websitelinks/wrapper.css'%}" rel = 'stylesheet'>
         <link href = "{%static 'websitelinks/styley.css'%}" rel = 'stylesheet'> 
@@ -14,7 +15,24 @@
                     ('iframe')
                     document.querySelector('h2').innerHTML = iframe
                 }
-        
+                
+                document.querySelector('#min').onclick = function() {
+                  console.log('click','that')
+                  does =  document.querySelector('#for')
+                  if(does.user.value == ""){
+                    alert("no link added")
+                  }
+                }
+
+              //onclick="return confirm('Are you sure you want to delete this item')"
+              document.querySelector('#put').onclick = function() {
+                //sure = document.querySelector()
+               // console.log('suresure', sure)
+               return confirm("Are you sure you want to delete");
+              }
+                 
+              
+
                  
                // const gombok=document.getElementsByTagName('button')
              //  const found = document.querySelector('#bate')
@@ -22,10 +40,13 @@
              //  console.log('muuuuu', found)
                var view1 = document.getElementsByClassName('fir_st');
                var view2 = document.getElementsByClassName('sec_ond'); 
+             //  view1.settAttribute("style", "display: block")
+            //   console.log('popop', view1.settAttribute())
 
-                 //changing button properties onmouseover
-
-      document.querySelector('#found').onmouseover = function() {
+              //changing button properties onmouseover
+   
+    
+      window.onload = function(){
       for (var i=0; i<view1.length; i++) {
       if(view1[i].style.display == 'none') {
                   // do some stuff
@@ -37,6 +58,7 @@
             }
      } 
 
+    
       for (var i=0; i<view2.length; i++) {
       if(view2[i].style.display == 'none'){
                 // do some stuff
@@ -47,10 +69,36 @@
              view2[i].style.display = 'block'
            }
        } 
-    }
+      }
+        document.querySelector('#found').onmouseover= function() {
+          for (var i=0; i<view1.length; i++) {
+      if(view1[i].style.display == 'none') {
+                  // do some stuff
+       view1[i].style.display = 'block'
+      }
+        else{
+                 // do some stuff
+               view1[i].style.display = 'block'
+            }
+     } 
+
+    
+      for (var i=0; i<view2.length; i++) {
+      if(view2[i].style.display == 'none'){
+                // do some stuff
+         view2[i].style.display = 'block'
+      }
+       else{
+               // do some stuff
+             view2[i].style.display = 'block'
+           }
+       } 
+      }
+  
      //changing button properties onmouseout
      
      document.querySelector('#found').onmouseout = function() {
+   
       for (var i=0; i<view1.length; i++) {
       if(view1[i].style.display == 'block'){
        // do some stuff
@@ -58,8 +106,8 @@
          }
            else{
                    // do some stuff
-                 view1[i].style.display = 'none'
-              }
+                view1[i].style.display = 'none'
+             }
        } 
 
       for (var i=0; i<view2.length; i++) {
@@ -71,8 +119,8 @@
                // do some stuff
              view2[i].style.display = 'none'
            }
-       } 
-    }
+       }  
+   }
 
     // document.querySelector('#found').onclick = function() {
     //  if (event.target.className =='fir_st') {
@@ -93,51 +141,84 @@
 
    // }
    //  }
-    
-          
-          
-               //  localStorage.clear();
+                // localStorage.clear();
                  // localStorage.removeItem('got')
-                pLiget = JSON.parse(localStorage.getItem('file')) 
-                if(pLiget != null){
-                    localStorage.setItem(localStorage.length,  pLiget)
-                    localStorage.removeItem('file')
-                    
+                 animesget = JSON.parse(localStorage.getItem('animes'))
+                if (window.location.href !=  "{%url 'animes'%}" ){
+                  console.log(window.location.href)
                 }
-                finest = []
-                 const items = [];
+                total = []
+                const them = []
+                const stored = []
+                if(animesget != null){
+                    localStorage.setItem(localStorage.length,  animesget)
+                    localStorage.removeItem('animes')
+                 // total.push(localStorage.games)  
+                }
+
+              //   for(var i=0; i< gamesget.length; ++i){
+               //   total.push(gamesget[i])
+               //   console.log('TOTOT',total)
+               //  }
+                
+                const gaas = []
+                const begin = []
+               
                    for ( var i = 0; i < localStorage.length; ++i ) { 
                    //  console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i)));
-                  finest.push(localStorage.file)
-                  console.log('FINEST', finest)
-                   keyvalue = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
-                  // const regex = /<li(?:.*?)>(.*?<\/li>)/g
+                 //  const regex = /<li(?:.*?)>(.*?<\/li>)/g
+            
                   // extracted = []
-                  // const matches = regex.exec(keyvalue);
-                       //  if (matches) {
-                       //  const extractedText = matches[0];
+                  // const matches = regex.exec(localStorage.games);
+                    //     if (matches) {
+                     //    const extractedText = matches[0];
                       //   extracted.push(extractedText)
-                       //   console.log('found',extractedText);
+                      //    console.log('found',extractedText);
                       //   } else {
-                     //   console.log("No match found.");
-                     //    }
-                   
-                   key  = localStorage.key(i)//+":"+
-                   //key = keyvalue[0]
-                   actual = localStorage.getItem(localStorage.key(i))
-                   
+                      //  console.log("No match found.");
+                       //  }
                 
                    
-                  // c = document.createElement('p')
-                  // c.innerHTML = actual
+                   keyvalues = localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))
+                   console.log('type', typeof(keyvalues[0]))
                   
-                  // localStorage.setItem(localStorage.length, actual)
-                 // 
-                   console.log(keyvalue)
-                   console.log('rrrrrrr', key)
-                   console.log('ammmmm',  actual )
-                   console.log(keyvalue)
-                   items.push({key, actual});
+                  // keey  = localStorage.key(i)//+":"+
+                   //key = keyvalue[0]
+                  // actuall = localStorage.getItem(localStorage.key(i))
+                
+                 
+                     keey  = localStorage.key(i)//+":"+
+                     actuall = localStorage.getItem(localStorage.key(i))
+                     console.log('rrrrrrr', keey)
+                     console.log('ammmmm',  actuall )
+                     console.log(keyvalues)
+                     gaas.push({keey, actuall});
+                     
+                     gee = []
+                    // gee.unshift(actuall)
+                    gee.push(actuall)
+                     //console.log(gee)
+                     for(x in gee){
+                      console.log(gee)
+                     var k = document.createElement('a')
+                     var node = gee[x]
+                     console.log(node)
+                     k.innerHTML = node
+                     console.log('yhissss',k.childNodes[0].id)
+                     if(k.childNodes[0].id == 'anime'){
+                      console.log('RIGHT')
+                      document.querySelector('#found').appendChild(k )
+                     }
+                  
+                  }
+                 
+
+                
+                  
+	                 // It is not a number
+
+                     
+                   
                   // if (key && actual) {
                   // const count = localStorage.length;
                   // const val = {
@@ -147,39 +228,40 @@
                   //  localStorage.setItem(key, val);
                   //}
                  // items.sort((a, b) => a.actual.key - b.actual.key)
-                    bee = []
-                    bee.push(actual)
-                    bee.sort((a, b) => a - b);
-                    console.log(bee)
-                   for(x in bee){
-                   var k = document.createElement('a')
-                   var node = bee[x]
-                   console.log(node)
-                   k.innerHTML = node
-                   console.log('yhissss',k)
-                   if(k.childNodes[0].id == 'anime'){
-                      console.log('RIGHT')
-                      document.querySelector('#found li').appendChild(k )
-                     }
-                 //  inside = document.getElementById('found')
-                 //  const c = k
+                    
                    
-                  
+
+                 //  inside = document.getElementById('found')
+                  // const c = k
+              
                   //  inside.appendChild(k)
                     
-                 //   inside.insertAdjacentHTML('afterEnd', c)
+                  //  inside.insertAdjacentHTML('afterEnd', c)
                 
                   
                   // console.log('ininini',inside.lastChild)
-                  
-                   // document.querySelector('#found li').appendChild(c )
-                   } 
-                
-                  console.log('xx:', items)
-                  console.log('vv:', items.key)
-               
+
+                 
 
                   
+                   
+                  // c = document.createElement('p')
+                  // c.innerHTML = actual
+                  
+                  // localStorage.setItem(localStorage.length, actual)
+                 
+                 
+                   
+                  
+                
+                  console.log('xx:', gaas)
+                  console.log('vv:', gaas.keey)
+                  //console.log('import', items)
+                 
+                  console.log('keyvalues', stored)
+               
+         
+                
                    document.querySelector('#found').onclick = function() {
                    if (event.target.className =='fir_st') {
                         console.log('cheeeel')
@@ -216,7 +298,7 @@
                      //  document.querySelector('#found li').parentNode.removeChild(pLI)
        
                         // remove(pLI)
-                        pLI.parentNode.remove(pLI)
+                    //    pLI.parentNode.remove(pLI)
                        // pLI.parentNode.style.display = 'none'
                         //inside = document.getElementById('per')
                         //  for(var i= 0; i<pLI.length; i++){
@@ -230,31 +312,40 @@
                           //localStorage.removeItem('1')
                        //console.log('wwwwoooo', inside)
                        // localStorage.remove(pLiget)
-                       const re = key;
+
                      
-                        Object.keys(localStorage).forEach(function (key) {
-                        if (key.match(re)) {
-                        //do something
-                        console.log ('payyyyy', key)
-                        //localStorage.removeItem(key)
                         console.log('pppppp', pLI.outerHTML.length )
-                        console.log('vvvvvvvv',key)
-                        console.log('xx:', items)
+                      //  console.log('vvvvvvvv',key)
+                        console.log('xx:', gaas)
+                        
         
                         let itemYouWant = null
-                        items.forEach((item) => {
-                          console.log(item.actual.length)
-                        if (item.actual === pLI.outerHTML) {
+                        gaas.forEach((item) => {
+                          console.log(item.actuall.length)
+                        if (item.actuall === pLI.outerHTML) {
                          itemYouWant = item;
-                         keynum = itemYouWant.key
-                         localStorage.removeItem(keynum)
+                         keynum = itemYouWant.keey
+                         
+                         //localStorage.removeItem(keynum)
+
+                         const re = keynum;
+                         Object.keys(localStorage).forEach(function (key) {
+                        if (key.match(re)) {
+                        //do something
+                      //  console.log ('payyyyy', key)
+                        localStorage.removeItem(key)
+                        console.log('pppppp', pLI.outerHTML.length )
+                        console.log('vvvvvvvv',key)
+                         }})
+
                           }
                          });
                          console.log('IWANT', itemYouWant)
                          console.log('IKEY', keynum)
-                        }})
-                      //  window.location.href = "{%url 'animes'%}"
+
+                        window.location.href = "{%url 'animes'%}"
                    }
+
                   
                        
 
@@ -288,22 +379,31 @@
                     //}
                     var changename = prompt("Please enter website name"); 
                     let itemYouWant = null
-                        items.forEach((item) => {
-                          console.log(item.actual.length)
-                        if (item.actual === pLI.outerHTML) {
+                        gaas.forEach((item) => {
+                          console.log(item.actuall.length)
+                        if (item.actuall === pLI.outerHTML) {
                          itemYouWant = item;
                          pLI.firstChild.innerHTML = changename
-                         keynum = itemYouWant.key
-                         localStorage.removeItem(keynum)
+                         keynum = itemYouWant.keey
+                         //localStorage.removeItem(keynum)
                          localStorage.setItem(keynum, pLI.outerHTML)
+                         itemYouWant = pLI.outerHTML
+                        // for ( var i = 0; i < localStorage.length; ++i ) { 
+                        //  gaas.push({keynum, itemYouWant})
+                        // }
+                         
+                         console.log('xx:', gaas)
+                         
+                       
                           }
                          });
                          console.log('IWANT', itemYouWant)
                          console.log('IKEY', keynum)
+                         
                         
                    
                    
-                    // window.location.href = "{%url 'animes'%}"
+                  //   window.location.href = "{%url 'animes'%}"
                      //do something
                     
                       pii = event.target.parentNode.firstChild
@@ -324,40 +424,62 @@
                     
                       //  window.location.href = "{%url 'animes'%}"
                      
-                    
-                    
                      console.log('pLI', pLI.firstChild)
                      console.log('cgamjejnwjw',pii)
                       
-
                     }
                  }
                 
                    //localStorage.clear();
 
                    }
-
-              
-              
+               
+               
                    
                     //console.log(localStorage.key(i)+":"+ localStorage.getItem(localStorage.key(i))); }
-                    
+                  
+          
+          
+                         
                   
             })
         </script>
-    
     </head>
     <body> 
-        <!--<div class="wrapper"> -->
+      <!--<div class="wrapper"> -->  
             <div class="left">
             <h1>links to free Animes download websites</h1>
             <ol id="found">
-              <li > 
-             <a href="https://gogoanime.pe/">gogoanime.pe</a>
+              <li><a href="https://gogoanime.pe/">gogoanime.pe</a></li>
                   <!-- {{animeweb}}   -->
-                </li>
               </ol>
             <a href="{% url 'websites'%}">WEBSITES</a>
+
+            <h2> my links </h2>
+         <ol id="My-List">
+              {%for passenger in context%}
+            <li>{{passenger}}</li>
+                  {%empty%}
+           <li>No links aded</li>
+              {%endfor%}
+          </ol>     
+            <h2>Add links</h2>
+  <form id ="for" action="{% url 'book'%}" method="post">
+    {% csrf_token %}
+    <input id = "show" name="user">
+    <input id = 'min' type="submit">
+</form>
+
+<h3>Delete Mylink</h3>
+  <form id="sel" action="{% url 'check' %}" method="post">
+    {% csrf_token %}
+    <select name="user">
+        {%for link in context %}
+           <option value="{{ link.id }}">{{ link }}</option>
+        {% endfor %}
+    </select>
+    <input id="put"  type="submit" >
+</form>
             </div>
             <div class="right">
                 <h3>links from Google</h3>
@@ -365,6 +487,6 @@
                 </button>
               <!-- <iframe id="welcome" src="./music.html" frameborder="1" width="900" height="500"></iframe>-->
             </div>
-      <!--  </div> -->
+      <!--</div>-->   
     </body>
 </html>

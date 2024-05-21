@@ -23,7 +23,7 @@
      document.querySelectorAll("#My-List li").forEach(eLI=>eLI.appendChild(button2.cloneNode(true)))
      var view1 = document.getElementsByClassName('fir_st');
      var view2 = document.getElementsByClassName('sec_ond');
-
+    
      document.querySelector('#My-List').onmouseover = function() {
      
     for (var i=0; i<view1.length; i++) {
@@ -119,7 +119,7 @@
  
       console.log('outerHTML',pLI.outerHTML)
       
-      localStorage.setItem('file', JSON.stringify(pLI.outerHTML))
+      localStorage.setItem('animes', JSON.stringify(pLI.outerHTML))
       window.location.href = "{%url 'animes'%}"
       window.close
 

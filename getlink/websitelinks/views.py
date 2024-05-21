@@ -11,7 +11,7 @@ from .musics import music
 from .images import image
 from asgiref.sync import sync_to_async
 import time, asyncio
-
+from .models import users
 
 # Create your views here.
 def index(request) :
@@ -33,7 +33,14 @@ def images(request) :
     return render(request, "websitelinks/images.html")    
 
 def animes(request) :
-    return render(request, "websitelinks/animes.html")#, {'animeweb': animeweb}) 
+    
+    user = users.objects.all()
+    context = dict()
+    context['context'] = user
+   # print('SOO', context)
+   
+    return render(request, "websitelinks/animes.html", context)
+      #, {'animeweb': animeweb}) 
    # return render(request, "websitelinks/animessearch.html", {'context': context})
 
 def animessearch(request) :
@@ -75,8 +82,34 @@ def imagessearch(request) :
     
     t = loader.get_template("websitelinks/imagessearch.html")
     return HttpResponse(t.render(context, request))
-    
-   
-    
+
+        
+def book(request):
+    if request.method == "POST":
+        input = request.POST.get('user')
+        if input != "" :
+            print('lallal')
+            user = users.objects.create(urls = (request.POST["user"]))
+        print('herehere', input)
+   # return render(request, "websitelinks/animes.html")
+    return HttpResponseRedirect(reverse("animes") ) 
+
+def check(request):
+    if request.method == "POST":
+        mylink = users.objects.all()
+        id = mylink[0]
+        member = request.POST.getlist('mylink')
+        context = dict()
+        context['context'] = mylink
+        pil  = request.POST.get('user')
+        #member.delete()
+        linkid = users.objects.get(id = pil)
+        linkid.delete()
+
+
+        print(member)
+        print('pills',pil)
+    return HttpResponseRedirect(reverse("animes"))
+
 
     
